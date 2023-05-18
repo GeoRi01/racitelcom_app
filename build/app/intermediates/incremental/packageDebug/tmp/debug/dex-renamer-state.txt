@@ -1,4 +1,0 @@
-#Thu May 18 11:33:19 SGT 2023
-base.0=C\:\\Users\\Glydel\\OneDrive - PAMBAYANG DALUBHASAAN NG MARILAO\\Desktop\\racitel mobile\\racitelcom_app\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
-renamed.0=classes.dex
-path.0=classes.dex
