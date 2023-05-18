@@ -106,9 +106,9 @@ class _HomePageState extends State<HomePage> {
                   SizedBox(
                     width: screenWidth * .02,
                   ),
-                  Column(
+                  const Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
+                    children: [
                       Text(
                         'Racitelcom Fiber',
                         style: TextStyle(
@@ -156,9 +156,9 @@ class _HomePageState extends State<HomePage> {
                   SizedBox(
                     width: screenWidth * .02,
                   ),
-                  Column(
+                  const Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
+                    children: [
                       Text(
                         'Racitelcom Fiber',
                         style: TextStyle(
@@ -237,8 +237,8 @@ class _HomePageState extends State<HomePage> {
                     width: screenWidth * .01,
                   ),
                 ),
-                child: Column(
-                  children: const [
+                child: const Column(
+                  children: [
                     Text(
                       '5 Mbps',
                       style: TextStyle(
@@ -273,8 +273,8 @@ class _HomePageState extends State<HomePage> {
                     width: screenWidth * .01,
                   ),
                 ),
-                child: Column(
-                  children: const [
+                child: const Column(
+                  children: [
                     Text(
                       '10 Mbps',
                       style: TextStyle(

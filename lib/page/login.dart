@@ -36,7 +36,7 @@ class _LoginPageState extends State<LoginPage> {
       TextEditingController username, TextEditingController password) async {
     // URL to the PHP script on your server
     const String phpScriptUrl =
-        'http://192.168.1.13/racitelcom_php/validate_user.php';
+        'http://192.168.100.26/racitelcom_php/validate_user.php';
 
     // Create a map of request parameters
     Map<String, String> requestBody = {

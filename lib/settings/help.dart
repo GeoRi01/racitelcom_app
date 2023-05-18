@@ -90,9 +90,9 @@ class _HelpSupportPageState extends State<HelpSupportPage> {
                         color: const Color(0XFFF5F5F5),
                         height: 70,
                         onPressed: () {},
-                        child: Row(
+                        child: const Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
+                          children: [
                             Icon(
                               Icons.headphones,
                               size: 50,
@@ -127,9 +127,9 @@ class _HelpSupportPageState extends State<HelpSupportPage> {
                         ),
                         child: Column(
                           children: [
-                            Row(
+                            const Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: const [
+                              children: [
                                 Text(
                                   "0925-722-4835",
                                   style: TextStyle(
