@@ -80,9 +80,9 @@ class _SubscribePlanPageState extends State<SubscribePlanPage> {
                         ),
                         child: Column(
                           children: [
-                            const Row(
+                            Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
+                              children: const [
                                 Text(
                                   "0925-722-4835",
                                   style: TextStyle(

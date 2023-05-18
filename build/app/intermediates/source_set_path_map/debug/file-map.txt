@@ -1,15 +1,15 @@
-com.example.db_racitel.app-jetified-window-java-1.0.0-beta04-0 C:\Users\SABENIANO\.gradle\caches\transforms-3\006d93cd422dbc43e89591147c2de572\transformed\jetified-window-java-1.0.0-beta04\res
-com.example.db_racitel.app-lifecycle-runtime-2.3.1-1 C:\Users\SABENIANO\.gradle\caches\transforms-3\76da31ad033c53187dd7271282d0f7d2\transformed\lifecycle-runtime-2.3.1\res
-com.example.db_racitel.app-core-1.10.1-2 C:\Users\SABENIANO\.gradle\caches\transforms-3\9c9ab1a476c120097a79d748cec7161f\transformed\core-1.10.1\res
-com.example.db_racitel.app-jetified-window-1.0.0-beta04-3 C:\Users\SABENIANO\.gradle\caches\transforms-3\dee59bb480020f42d53c2ea15e4501f7\transformed\jetified-window-1.0.0-beta04\res
-com.example.db_racitel.app-jetified-annotation-experimental-1.3.0-4 C:\Users\SABENIANO\.gradle\caches\transforms-3\ec10578641139d45a328c567f48881a1\transformed\jetified-annotation-experimental-1.3.0\res
-com.example.db_racitel.app-debug-5 D:\VS Code\db_racitel\android\app\src\debug\res
-com.example.db_racitel.app-main-6 D:\VS Code\db_racitel\android\app\src\main\res
-com.example.db_racitel.app-pngs-7 D:\VS Code\db_racitel\build\app\generated\res\pngs\debug
-com.example.db_racitel.app-resValues-8 D:\VS Code\db_racitel\build\app\generated\res\resValues\debug
-com.example.db_racitel.app-rs-9 D:\VS Code\db_racitel\build\app\generated\res\rs\debug
-com.example.db_racitel.app-mergeDebugResources-10 D:\VS Code\db_racitel\build\app\intermediates\incremental\debug\mergeDebugResources\merged.dir
-com.example.db_racitel.app-mergeDebugResources-11 D:\VS Code\db_racitel\build\app\intermediates\incremental\debug\mergeDebugResources\stripped.dir
-com.example.db_racitel.app-merged_res-12 D:\VS Code\db_racitel\build\app\intermediates\merged_res\debug
-com.example.db_racitel.app-packaged_res-13 D:\VS Code\db_racitel\build\flutter_native_splash\intermediates\packaged_res\debug
-com.example.db_racitel.app-packaged_res-14 D:\VS Code\db_racitel\build\url_launcher_android\intermediates\packaged_res\debug
+com.example.db_racitel.app-jetified-window-java-1.0.0-beta04-0 C:\Users\Glydel\.gradle\caches\transforms-3\006d93cd422dbc43e89591147c2de572\transformed\jetified-window-java-1.0.0-beta04\res
+com.example.db_racitel.app-lifecycle-runtime-2.3.1-1 C:\Users\Glydel\.gradle\caches\transforms-3\76da31ad033c53187dd7271282d0f7d2\transformed\lifecycle-runtime-2.3.1\res
+com.example.db_racitel.app-core-1.10.1-2 C:\Users\Glydel\.gradle\caches\transforms-3\9c9ab1a476c120097a79d748cec7161f\transformed\core-1.10.1\res
+com.example.db_racitel.app-jetified-window-1.0.0-beta04-3 C:\Users\Glydel\.gradle\caches\transforms-3\dee59bb480020f42d53c2ea15e4501f7\transformed\jetified-window-1.0.0-beta04\res
+com.example.db_racitel.app-jetified-annotation-experimental-1.3.0-4 C:\Users\Glydel\.gradle\caches\transforms-3\ec10578641139d45a328c567f48881a1\transformed\jetified-annotation-experimental-1.3.0\res
+com.example.db_racitel.app-debug-5 C:\Users\Glydel\OneDrive - PAMBAYANG DALUBHASAAN NG MARILAO\Desktop\racitel mobile\racitelcom_app\android\app\src\debug\res
+com.example.db_racitel.app-main-6 C:\Users\Glydel\OneDrive - PAMBAYANG DALUBHASAAN NG MARILAO\Desktop\racitel mobile\racitelcom_app\android\app\src\main\res
+com.example.db_racitel.app-pngs-7 C:\Users\Glydel\OneDrive - PAMBAYANG DALUBHASAAN NG MARILAO\Desktop\racitel mobile\racitelcom_app\build\app\generated\res\pngs\debug
+com.example.db_racitel.app-resValues-8 C:\Users\Glydel\OneDrive - PAMBAYANG DALUBHASAAN NG MARILAO\Desktop\racitel mobile\racitelcom_app\build\app\generated\res\resValues\debug
+com.example.db_racitel.app-rs-9 C:\Users\Glydel\OneDrive - PAMBAYANG DALUBHASAAN NG MARILAO\Desktop\racitel mobile\racitelcom_app\build\app\generated\res\rs\debug
+com.example.db_racitel.app-mergeDebugResources-10 C:\Users\Glydel\OneDrive - PAMBAYANG DALUBHASAAN NG MARILAO\Desktop\racitel mobile\racitelcom_app\build\app\intermediates\incremental\debug\mergeDebugResources\merged.dir
+com.example.db_racitel.app-mergeDebugResources-11 C:\Users\Glydel\OneDrive - PAMBAYANG DALUBHASAAN NG MARILAO\Desktop\racitel mobile\racitelcom_app\build\app\intermediates\incremental\debug\mergeDebugResources\stripped.dir
+com.example.db_racitel.app-merged_res-12 C:\Users\Glydel\OneDrive - PAMBAYANG DALUBHASAAN NG MARILAO\Desktop\racitel mobile\racitelcom_app\build\app\intermediates\merged_res\debug
+com.example.db_racitel.app-packaged_res-13 C:\Users\Glydel\OneDrive - PAMBAYANG DALUBHASAAN NG MARILAO\Desktop\racitel mobile\racitelcom_app\build\flutter_native_splash\intermediates\packaged_res\debug
+com.example.db_racitel.app-packaged_res-14 C:\Users\Glydel\OneDrive - PAMBAYANG DALUBHASAAN NG MARILAO\Desktop\racitel mobile\racitelcom_app\build\url_launcher_android\intermediates\packaged_res\debug

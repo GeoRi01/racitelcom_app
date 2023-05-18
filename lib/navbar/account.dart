@@ -1,3 +1,4 @@
+import 'package:db_racitel/settings/change_pass.dart';
 import 'package:db_racitel/settings/settings.dart';
 import 'package:flutter/material.dart';
 
@@ -101,8 +102,8 @@ class _AccountPageState extends State<AccountPage> {
                         color: const Color(0XFFF5F5F5),
                         height: 70,
                         onPressed: () {},
-                        child: const Row(
-                          children: [
+                        child: Row(
+                          children: const [
                             Icon(
                               Icons.person_2_outlined,
                               size: 40,
@@ -132,8 +133,8 @@ class _AccountPageState extends State<AccountPage> {
                         color: const Color(0XFFF5F5F5),
                         height: 70,
                         onPressed: () {},
-                        child: const Row(
-                          children: [
+                        child: Row(
+                          children: const [
                             Icon(
                               Icons.schedule_outlined,
                               size: 40,
@@ -162,9 +163,16 @@ class _AccountPageState extends State<AccountPage> {
                         ),
                         color: const Color(0XFFF5F5F5),
                         height: 70,
-                        onPressed: () {},
-                        child: const Row(
-                          children: [
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const ChangePasswordPage(),
+                            ),
+                          );
+                        },
+                        child: Row(
+                          children: const [
                             Icon(
                               Icons.autorenew_outlined,
                               size: 40,
@@ -201,8 +209,8 @@ class _AccountPageState extends State<AccountPage> {
                             ),
                           );
                         },
-                        child: const Row(
-                          children: [
+                        child: Row(
+                          children: const [
                             Icon(
                               Icons.settings_outlined,
                               size: 40,

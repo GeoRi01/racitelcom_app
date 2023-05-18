@@ -2,6 +2,7 @@
 
 import 'dart:convert';
 
+import 'package:db_racitel/page/forgot.dart';
 import 'package:db_racitel/page/navbar.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -35,7 +36,7 @@ class _LoginPageState extends State<LoginPage> {
       TextEditingController username, TextEditingController password) async {
     // URL to the PHP script on your server
     const String phpScriptUrl =
-        'http://192.168.100.26/db_racitel/validate_user.php';
+        'http://192.168.1.13/racitelcom_php/validate_user.php';
 
     // Create a map of request parameters
     Map<String, String> requestBody = {
@@ -177,7 +178,14 @@ class _LoginPageState extends State<LoginPage> {
               height: screenHeight * .035,
             ),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ForgotPage(),
+                  ),
+                );
+              },
               child: const Text(
                 "Forgot Password?",
                 style: TextStyle(

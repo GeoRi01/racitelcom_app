@@ -4,7 +4,7 @@
             "outputFile": "com.example.db_racitel.app-mergeDebugResources-10:/values-night-v8/values-night-v8.xml",
             "map": [
                 {
-                    "source": "D:\\VS Code\\db_racitel\\android\\app\\src\\main\\res\\values-night\\styles.xml",
+                    "source": "C:\\Users\\Glydel\\OneDrive - PAMBAYANG DALUBHASAAN NG MARILAO\\Desktop\\racitel mobile\\racitelcom_app\\android\\app\\src\\main\\res\\values-night\\styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",
