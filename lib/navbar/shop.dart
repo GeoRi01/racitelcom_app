@@ -4,6 +4,7 @@ import 'package:db_racitel/category/all.dart';
 import 'package:db_racitel/category/cables.dart';
 import 'package:db_racitel/category/routers.dart';
 import 'package:db_racitel/category/telephone.dart';
+import 'package:db_racitel/shop/cart.dart';
 import 'package:flutter/material.dart';
 
 class ShopPage extends StatefulWidget {
@@ -110,7 +111,14 @@ class _ShopPageState extends State<ShopPage>
                                   Icons.shopping_cart_outlined,
                                   size: 35,
                                 ),
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => const CartPage(),
+                                    ),
+                                  );
+                                },
                               ),
                             ),
                           ],
