@@ -52,7 +52,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 300),
+                padding: const EdgeInsets.only(left: 260),
                 child: IconButton(
                   onPressed: () {
                     Navigator.push(
@@ -106,9 +106,9 @@ class _HomePageState extends State<HomePage> {
                   SizedBox(
                     width: screenWidth * .02,
                   ),
-                  const Column(
+                  Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
+                    children: const [
                       Text(
                         'Racitelcom Fiber',
                         style: TextStyle(
@@ -156,9 +156,9 @@ class _HomePageState extends State<HomePage> {
                   SizedBox(
                     width: screenWidth * .02,
                   ),
-                  const Column(
+                  Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
+                    children: const [
                       Text(
                         'Racitelcom Fiber',
                         style: TextStyle(
@@ -237,8 +237,8 @@ class _HomePageState extends State<HomePage> {
                     width: screenWidth * .01,
                   ),
                 ),
-                child: const Column(
-                  children: [
+                child: Column(
+                  children: const [
                     Text(
                       '5 Mbps',
                       style: TextStyle(
@@ -273,8 +273,8 @@ class _HomePageState extends State<HomePage> {
                     width: screenWidth * .01,
                   ),
                 ),
-                child: const Column(
-                  children: [
+                child: Column(
+                  children: const [
                     Text(
                       '10 Mbps',
                       style: TextStyle(

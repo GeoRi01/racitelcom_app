@@ -2,10 +2,12 @@ import 'package:db_racitel/settings/change_pass.dart';
 import 'package:db_racitel/settings/profile.dart';
 import 'package:db_racitel/settings/settings.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class AccountPage extends StatefulWidget {
   final String username;
-  const AccountPage(this.username, {super.key});
+  const AccountPage(this.username, {Key? key}) : super(key: key);
 
   @override
   State<AccountPage> createState() => _AccountPageState();
@@ -13,11 +15,28 @@ class AccountPage extends StatefulWidget {
 
 class _AccountPageState extends State<AccountPage> {
   String username = '';
+  Future<List<dynamic>>? fetchDataFuture;
+
+  Future<List<dynamic>> fetchData(String searchString) async {
+    final url = Uri.parse(
+        'http://192.168.1.12/racitelcom_php/fetch_data.php?searchString=$searchString');
+
+    final response = await http.get(url);
+
+    if (response.statusCode == 200) {
+      final data = jsonDecode(response.body) as List<dynamic>;
+      return data;
+    } else {
+      throw Exception('Failed to fetch data');
+    }
+  }
 
   @override
   void initState() {
     super.initState();
     username = widget.username;
+    fetchDataFuture =
+        fetchData(username); // Fetch data when the page is initialized
   }
 
   @override
@@ -79,166 +98,193 @@ class _AccountPageState extends State<AccountPage> {
                               ),
                               Text(
                                 username,
-                                style:
-                                    Theme.of(context).textTheme.headlineMedium,
+                                style: Theme.of(context).textTheme.titleLarge,
                               ),
-                              Text(
-                                "subscribers@gmail.com",
-                                style: Theme.of(context).textTheme.bodyMedium,
+                              FutureBuilder<List<dynamic>>(
+                                future: fetchDataFuture,
+                                builder: (context, snapshot) {
+                                  if (snapshot.connectionState ==
+                                      ConnectionState.waiting) {
+                                    return const CircularProgressIndicator();
+                                  } else if (snapshot.hasError) {
+                                    return Text('Error: ${snapshot.error}');
+                                  } else {
+                                    final data = snapshot.data;
+                                    if (data != null && data.isNotEmpty) {
+                                      return Text(
+                                        data[0]['email'],
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodyMedium,
+                                      );
+                                    } else {
+                                      return const SizedBox();
+                                    }
+                                  }
+                                },
                               ),
                               const SizedBox(
-                                height: 40,
+                                height: 60,
+                              ),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.only(left: 50, right: 50),
+                                child: MaterialButton(
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  color: const Color(0XFFF5F5F5),
+                                  height: 70,
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            ProfilePage(username),
+                                      ),
+                                    );
+                                  },
+                                  child: Row(
+                                    children: const [
+                                      Icon(
+                                        Icons.person_2_outlined,
+                                        size: 40,
+                                        color: Color(0XFF3B3B3B),
+                                      ),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                      Text(
+                                        "My Profile",
+                                        style: TextStyle(
+                                            fontSize: 23,
+                                            color: Color(0XFF3B3B3B)),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 20,
+                              ),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.only(left: 50, right: 50),
+                                child: MaterialButton(
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  color: const Color(0XFFF5F5F5),
+                                  height: 70,
+                                  onPressed: () {},
+                                  child: Row(
+                                    children: const [
+                                      Icon(
+                                        Icons.schedule_outlined,
+                                        size: 40,
+                                        color: Color(0XFF3B3B3B),
+                                      ),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                      Text(
+                                        "Order Status",
+                                        style: TextStyle(
+                                            fontSize: 23,
+                                            color: Color(0XFF3B3B3B)),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 20,
+                              ),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.only(left: 50, right: 50),
+                                child: MaterialButton(
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  color: const Color(0XFFF5F5F5),
+                                  height: 70,
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            const ChangePasswordPage(),
+                                      ),
+                                    );
+                                  },
+                                  child: Row(
+                                    children: const [
+                                      Icon(
+                                        Icons.autorenew_outlined,
+                                        size: 40,
+                                        color: Color(0XFF3B3B3B),
+                                      ),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                      Text(
+                                        "Change Password",
+                                        style: TextStyle(
+                                            fontSize: 23,
+                                            color: Color(0XFF3B3B3B)),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 20,
+                              ),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.only(left: 50, right: 50),
+                                child: MaterialButton(
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  color: const Color(0XFFF5F5F5),
+                                  height: 70,
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            const SettingsPage(),
+                                      ),
+                                    );
+                                  },
+                                  child: Row(
+                                    children: const [
+                                      Icon(
+                                        Icons.settings_outlined,
+                                        size: 40,
+                                        color: Color(0XFF3B3B3B),
+                                      ),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                      Text(
+                                        "Settings",
+                                        style: TextStyle(
+                                            fontSize: 23,
+                                            color: Color(0XFF3B3B3B)),
+                                      ),
+                                    ],
+                                  ),
+                                ),
                               ),
                             ],
                           ),
                         ),
                       ],
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 50, right: 50),
-                      child: MaterialButton(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        color: const Color(0XFFF5F5F5),
-                        height: 70,
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const ProfilePage(),
-                            ),
-                          );
-                        },
-                        child: const Row(
-                          children: [
-                            Icon(
-                              Icons.person_2_outlined,
-                              size: 40,
-                              color: Color(0XFF3B3B3B),
-                            ),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Text(
-                              "My Profile",
-                              style: TextStyle(
-                                  fontSize: 23, color: Color(0XFF3B3B3B)),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 50, right: 50),
-                      child: MaterialButton(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        color: const Color(0XFFF5F5F5),
-                        height: 70,
-                        onPressed: () {},
-                        child: const Row(
-                          children: [
-                            Icon(
-                              Icons.schedule_outlined,
-                              size: 40,
-                              color: Color(0XFF3B3B3B),
-                            ),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Text(
-                              "Order Status",
-                              style: TextStyle(
-                                  fontSize: 23, color: Color(0XFF3B3B3B)),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 50, right: 50),
-                      child: MaterialButton(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        color: const Color(0XFFF5F5F5),
-                        height: 70,
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const ChangePasswordPage(),
-                            ),
-                          );
-                        },
-                        child: const Row(
-                          children: [
-                            Icon(
-                              Icons.autorenew_outlined,
-                              size: 40,
-                              color: Color(0XFF3B3B3B),
-                            ),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Text(
-                              "Change Password",
-                              style: TextStyle(
-                                  fontSize: 23, color: Color(0XFF3B3B3B)),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 50, right: 50),
-                      child: MaterialButton(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        color: const Color(0XFFF5F5F5),
-                        height: 70,
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const SettingsPage(),
-                            ),
-                          );
-                        },
-                        child: const Row(
-                          children: [
-                            Icon(
-                              Icons.settings_outlined,
-                              size: 40,
-                              color: Color(0XFF3B3B3B),
-                            ),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Text(
-                              "Settings",
-                              style: TextStyle(
-                                  fontSize: 23, color: Color(0XFF3B3B3B)),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
+                    // Rest of the code...
                   ],
                 ),
               ),

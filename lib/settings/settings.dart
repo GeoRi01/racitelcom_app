@@ -73,8 +73,8 @@ class _SettingsPageState extends State<SettingsPage> {
                 color: const Color(0XFFF5F5F5),
                 height: 70,
                 onPressed: () {},
-                child: const Row(
-                  children: [
+                child: Row(
+                  children: const [
                     Icon(
                       Icons.description,
                       size: 40,
@@ -103,8 +103,8 @@ class _SettingsPageState extends State<SettingsPage> {
                 color: const Color(0XFFF5F5F5),
                 height: 70,
                 onPressed: () {},
-                child: const Row(
-                  children: [
+                child: Row(
+                  children: const [
                     Icon(
                       Icons.privacy_tip,
                       size: 40,
@@ -140,8 +140,8 @@ class _SettingsPageState extends State<SettingsPage> {
                     ),
                   );
                 },
-                child: const Row(
-                  children: [
+                child: Row(
+                  children: const [
                     Icon(
                       Icons.help_outline,
                       size: 40,

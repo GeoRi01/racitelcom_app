@@ -86,14 +86,16 @@ class _CheckoutPageState extends State<CheckoutPage> {
                         ),
                         child: Row(
                           children: [
-                            Image.asset(
-                              'assets/images/loc.jpg',
-                              height: 50,
-                              width: 70,
+                            const Icon(
+                              Icons.location_on,
+                              size: 70,
                             ),
-                            const Column(
+                            Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
+                              children: const [
+                                Padding(
+                                  padding: EdgeInsets.only(top: 30),
+                                ),
                                 Text(
                                   'Marinel B. Velasco',
                                   style: TextStyle(
@@ -105,7 +107,7 @@ class _CheckoutPageState extends State<CheckoutPage> {
                                   style: TextStyle(fontSize: 15),
                                 ),
                                 Text(
-                                  ' Loma De Gato, Marilao, Bulacan',
+                                  'Loma De Gato, Marilao, Bulacan',
                                   style: TextStyle(
                                       color: Colors.black, fontSize: 12),
                                 ),

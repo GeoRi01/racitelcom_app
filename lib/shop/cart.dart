@@ -134,10 +134,10 @@ class _CartPageState extends State<CartPage> {
                                   SizedBox(
                                     width: screenWidth * .02,
                                   ),
-                                  const Column(
+                                  Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
-                                    children: [
+                                    children: const [
                                       Text(
                                         'Router',
                                         style: TextStyle(
@@ -182,10 +182,10 @@ class _CartPageState extends State<CartPage> {
                                   SizedBox(
                                     width: screenWidth * .02,
                                   ),
-                                  const Column(
+                                  Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
-                                    children: [
+                                    children: const [
                                       Text(
                                         'Power Adapter',
                                         style: TextStyle(
@@ -264,10 +264,10 @@ class _CartPageState extends State<CartPage> {
                                   SizedBox(
                                     width: screenWidth * .02,
                                   ),
-                                  const Column(
+                                  Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
-                                    children: [
+                                    children: const [
                                       Text(
                                         'LAN Cable',
                                         style: TextStyle(

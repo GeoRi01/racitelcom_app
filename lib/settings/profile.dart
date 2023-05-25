@@ -1,13 +1,41 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class ProfilePage extends StatefulWidget {
-  const ProfilePage({super.key});
+  final String username;
+  const ProfilePage(this.username, {Key? key}) : super(key: key);
 
   @override
   State<ProfilePage> createState() => _ProfilePageState();
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  String username = '';
+  Future<List<dynamic>>? fetchDataFuture;
+
+  Future<List<dynamic>> fetchData(String searchString) async {
+    final url = Uri.parse(
+        'http://192.168.1.12/racitelcom_php/fetch_data.php?searchString=$searchString');
+
+    final response = await http.get(url);
+
+    if (response.statusCode == 200) {
+      final data = jsonDecode(response.body) as List<dynamic>;
+      return data;
+    } else {
+      throw Exception('Failed to fetch data');
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    username = widget.username;
+    fetchDataFuture =
+        fetchData(username); // Fetch data when the page is initialized
+  }
+
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
@@ -31,9 +59,7 @@ class _ProfilePageState extends State<ProfilePage> {
               children: [
                 IconButton(
                   onPressed: () {
-                    Navigator.pop(
-                      context,
-                    );
+                    Navigator.pop(context);
                   },
                   icon: const Icon(
                     Icons.arrow_back,
@@ -56,7 +82,7 @@ class _ProfilePageState extends State<ProfilePage> {
               ],
             ),
             const SizedBox(
-              height: 30,
+              height: 20,
             ),
             Container(
               padding: const EdgeInsets.only(top: 20),
@@ -70,194 +96,213 @@ class _ProfilePageState extends State<ProfilePage> {
                   width: screenWidth * .01,
                 ),
               ),
-              child: Column(
-                children: [
-                  SizedBox(
-                    width: 220,
-                    height: 190,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(100),
-                      child: const Image(
-                        image: AssetImage("assets/images/profile.png"),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Row(
-                    children: [
-                      SizedBox(
-                        width: screenWidth * .050,
-                      ),
-                      const Text(
-                        'First Name:',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 15),
-                      ),
-                      const SizedBox(
-                        width: 50,
-                      ),
-                      const Text(
-                        'Jennifer',
-                        style: TextStyle(
-                            color: Colors.red,
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Row(
-                    children: [
-                      SizedBox(
-                        width: screenWidth * .050,
-                      ),
-                      const Text(
-                        'Middle Name:',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 15),
-                      ),
-                      const SizedBox(
-                        width: 35,
-                      ),
-                      const Text(
-                        'Bulante',
-                        style: TextStyle(
-                            color: Colors.red,
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Row(
-                    children: [
-                      SizedBox(
-                        width: screenWidth * .050,
-                      ),
-                      const Text(
-                        'Last Name:',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 15),
-                      ),
-                      const SizedBox(
-                        width: 52,
-                      ),
-                      const Text(
-                        'Catarinin',
-                        style: TextStyle(
-                            color: Colors.red,
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Row(
-                    children: [
-                      SizedBox(
-                        width: screenWidth * .050,
-                      ),
-                      const Text(
-                        'Gender:',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 15),
-                      ),
-                      const SizedBox(
-                        width: 77,
-                      ),
-                      const Text(
-                        'Female',
-                        style: TextStyle(
-                            color: Colors.red,
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Row(
-                    children: [
-                      SizedBox(
-                        width: screenWidth * .050,
-                      ),
-                      const Text(
-                        'Date of Birth:',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 15),
-                      ),
-                      const SizedBox(
-                        width: 38,
-                      ),
-                      const Text(
-                        'July 26, 2000',
-                        style: TextStyle(
-                            color: Colors.red,
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Row(
-                    children: [
-                      SizedBox(
-                        width: screenWidth * .050,
-                      ),
-                      const Text(
-                        'Contact Number:',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 15),
-                      ),
-                      const SizedBox(
-                        width: 13,
-                      ),
-                      const Text(
-                        '09xxxxxxxxx',
-                        style: TextStyle(
-                            color: Colors.red,
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Row(
-                    children: [
-                      SizedBox(
-                        width: screenWidth * .050,
-                      ),
-                      const Text(
-                        'Email Address:',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 15),
-                      ),
-                      const SizedBox(
-                        width: 25,
-                      ),
-                      const Text(
-                        'catarinin.jennifer26@gmail.com',
-                        style: TextStyle(
-                            color: Colors.red,
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                ],
+              child: FutureBuilder<List<dynamic>>(
+                future: fetchDataFuture,
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return const CircularProgressIndicator();
+                  } else if (snapshot.hasError) {
+                    return Text('Error: ${snapshot.error}');
+                  } else {
+                    final data = snapshot.data;
+                    if (data != null && data.isNotEmpty) {
+                      return Column(
+                        children: [
+                          SizedBox(
+                            width: 220,
+                            height: 190,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(100),
+                              child: Image(
+                                image: AssetImage('assets/images/profile.png'),
+                                fit: BoxFit.contain,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Row(
+                            children: [
+                              SizedBox(
+                                width: screenWidth * .050,
+                              ),
+                              const Text(
+                                'First Name:',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 15),
+                              ),
+                              const SizedBox(
+                                width: 50,
+                              ),
+                              Text(
+                                data[0]['firstname'],
+                                style: const TextStyle(
+                                    color: Colors.red,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Row(
+                            children: [
+                              SizedBox(
+                                width: screenWidth * .050,
+                              ),
+                              const Text(
+                                'Middle Name:',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 15),
+                              ),
+                              const SizedBox(
+                                width: 34,
+                              ),
+                              Text(
+                                data[0]['middlename'],
+                                style: const TextStyle(
+                                    color: Colors.red,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Row(
+                            children: [
+                              SizedBox(
+                                width: screenWidth * .050,
+                              ),
+                              const Text(
+                                'Last Name:',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 15),
+                              ),
+                              const SizedBox(
+                                width: 50,
+                              ),
+                              Text(
+                                data[0]['lastname'],
+                                style: const TextStyle(
+                                    color: Colors.red,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Row(
+                            children: [
+                              SizedBox(
+                                width: screenWidth * .050,
+                              ),
+                              const Text(
+                                'Gender:',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 15),
+                              ),
+                              const SizedBox(
+                                width: 73,
+                              ),
+                              Text(
+                                data[0]['gender'],
+                                style: const TextStyle(
+                                    color: Colors.red,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Row(
+                            children: [
+                              SizedBox(
+                                width: screenWidth * .050,
+                              ),
+                              const Text(
+                                'Date of Birth:',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 15),
+                              ),
+                              const SizedBox(
+                                width: 36,
+                              ),
+                              Text(
+                                data[0]['birthday'],
+                                style: const TextStyle(
+                                    color: Colors.red,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Row(
+                            children: [
+                              SizedBox(
+                                width: screenWidth * .050,
+                              ),
+                              const Text(
+                                'Contact Number:',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 15),
+                              ),
+                              const SizedBox(
+                                width: 10,
+                              ),
+                              Text(
+                                data[0]['contact'],
+                                style: const TextStyle(
+                                    color: Colors.red,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Row(
+                            children: [
+                              SizedBox(
+                                width: screenWidth * .050,
+                              ),
+                              const Text(
+                                'Email Address:',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 15),
+                              ),
+                              const SizedBox(
+                                width: 23,
+                              ),
+                              Text(
+                                data[0]['email'],
+                                style: const TextStyle(
+                                    color: Colors.red,
+                                    fontSize: 13,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ],
+                          ),
+
+                          // Display other profile information...
+                        ],
+                      );
+                    } else {
+                      return const Text('No data available');
+                    }
+                  }
+                },
               ),
             ),
           ],
