@@ -3,14 +3,23 @@ import 'package:flutter/material.dart';
 import 'package:slide_switcher/slide_switcher.dart';
 
 class CartPage extends StatefulWidget {
-  const CartPage({super.key});
+  final String username;
+  const CartPage(this.username, {super.key});
 
   @override
   State<CartPage> createState() => _CartPageState();
 }
 
 class _CartPageState extends State<CartPage> {
+  String username = '';
   int switcherIndex1 = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    username = widget.username;
+  }
+
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
@@ -134,10 +143,10 @@ class _CartPageState extends State<CartPage> {
                                   SizedBox(
                                     width: screenWidth * .02,
                                   ),
-                                  Column(
+                                  const Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
-                                    children: const [
+                                    children: [
                                       Text(
                                         'Router',
                                         style: TextStyle(
@@ -182,10 +191,10 @@ class _CartPageState extends State<CartPage> {
                                   SizedBox(
                                     width: screenWidth * .02,
                                   ),
-                                  Column(
+                                  const Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
-                                    children: const [
+                                    children: [
                                       Text(
                                         'Power Adapter',
                                         style: TextStyle(
@@ -223,7 +232,7 @@ class _CartPageState extends State<CartPage> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => const CheckoutPage(),
+                                  builder: (context) => CheckoutPage(username),
                                 ),
                               );
                             },
@@ -264,10 +273,10 @@ class _CartPageState extends State<CartPage> {
                                   SizedBox(
                                     width: screenWidth * .02,
                                   ),
-                                  Column(
+                                  const Column(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
-                                    children: const [
+                                    children: [
                                       Text(
                                         'LAN Cable',
                                         style: TextStyle(

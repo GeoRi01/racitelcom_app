@@ -30,7 +30,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     screen = [
       HomePage(username),
-      const ShopPage(),
+      ShopPage(username),
       const PlansPage(),
       const PaymentPage(),
       AccountPage(username),

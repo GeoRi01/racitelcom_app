@@ -97,12 +97,12 @@ class _NotificationPageState extends State<NotificationPage> {
                                 SizedBox(
                                   width: screenWidth * .02,
                                 ),
-                                Row(
+                                const Row(
                                   children: [
                                     Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
-                                      children: const [
+                                      children: [
                                         Text(
                                           'Racitelcom Advisory',
                                           style: TextStyle(
@@ -147,12 +147,12 @@ class _NotificationPageState extends State<NotificationPage> {
                                 SizedBox(
                                   width: screenWidth * .02,
                                 ),
-                                Row(
+                                const Row(
                                   children: [
                                     Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
-                                      children: const [
+                                      children: [
                                         Text(
                                           'Racitelcom Advisory',
                                           style: TextStyle(
@@ -197,12 +197,12 @@ class _NotificationPageState extends State<NotificationPage> {
                                 SizedBox(
                                   width: screenWidth * .02,
                                 ),
-                                Row(
+                                const Row(
                                   children: [
                                     Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
-                                      children: const [
+                                      children: [
                                         Text(
                                           'Racitelcom Advisory',
                                           style: TextStyle(

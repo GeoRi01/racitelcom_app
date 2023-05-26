@@ -16,7 +16,7 @@ class _ProfilePageState extends State<ProfilePage> {
 
   Future<List<dynamic>> fetchData(String searchString) async {
     final url = Uri.parse(
-        'http://192.168.1.12/racitelcom_php/fetch_data.php?searchString=$searchString');
+        'http://192.168.100.26/racitelcom_php/fetch_data.php?searchString=$searchString');
 
     final response = await http.get(url);
 
@@ -113,7 +113,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             height: 190,
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(100),
-                              child: Image(
+                              child: const Image(
                                 image: AssetImage('assets/images/profile.png'),
                                 fit: BoxFit.contain,
                               ),
@@ -133,35 +133,10 @@ class _ProfilePageState extends State<ProfilePage> {
                                     fontWeight: FontWeight.bold, fontSize: 15),
                               ),
                               const SizedBox(
-                                width: 50,
+                                width: 48,
                               ),
                               Text(
-                                data[0]['firstname'],
-                                style: const TextStyle(
-                                    color: Colors.red,
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          Row(
-                            children: [
-                              SizedBox(
-                                width: screenWidth * .050,
-                              ),
-                              const Text(
-                                'Middle Name:',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 15),
-                              ),
-                              const SizedBox(
-                                width: 34,
-                              ),
-                              Text(
-                                data[0]['middlename'],
+                                data[0]['subs_fname'],
                                 style: const TextStyle(
                                     color: Colors.red,
                                     fontSize: 15,
@@ -186,57 +161,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 width: 50,
                               ),
                               Text(
-                                data[0]['lastname'],
-                                style: const TextStyle(
-                                    color: Colors.red,
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          Row(
-                            children: [
-                              SizedBox(
-                                width: screenWidth * .050,
-                              ),
-                              const Text(
-                                'Gender:',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 15),
-                              ),
-                              const SizedBox(
-                                width: 73,
-                              ),
-                              Text(
-                                data[0]['gender'],
-                                style: const TextStyle(
-                                    color: Colors.red,
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          Row(
-                            children: [
-                              SizedBox(
-                                width: screenWidth * .050,
-                              ),
-                              const Text(
-                                'Date of Birth:',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 15),
-                              ),
-                              const SizedBox(
-                                width: 36,
-                              ),
-                              Text(
-                                data[0]['birthday'],
+                                data[0]['subs_lname'],
                                 style: const TextStyle(
                                     color: Colors.red,
                                     fontSize: 15,
@@ -261,7 +186,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 width: 10,
                               ),
                               Text(
-                                data[0]['contact'],
+                                data[0]['subs_contact'],
                                 style: const TextStyle(
                                     color: Colors.red,
                                     fontSize: 15,
@@ -286,7 +211,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 width: 23,
                               ),
                               Text(
-                                data[0]['email'],
+                                data[0]['subs_email'],
                                 style: const TextStyle(
                                     color: Colors.red,
                                     fontSize: 13,
@@ -294,7 +219,109 @@ class _ProfilePageState extends State<ProfilePage> {
                               ),
                             ],
                           ),
-
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Row(
+                            children: [
+                              SizedBox(
+                                width: screenWidth * .050,
+                              ),
+                              const Text(
+                                'Address:',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 15),
+                              ),
+                              const SizedBox(
+                                width: 63,
+                              ),
+                              Text(
+                                data[0]['subs_address'],
+                                style: const TextStyle(
+                                    color: Colors.red,
+                                    fontSize: 12.5,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Row(
+                            children: [
+                              SizedBox(
+                                width: screenWidth * .050,
+                              ),
+                              const Text(
+                                'Barangay:',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 15),
+                              ),
+                              const SizedBox(
+                                width: 58,
+                              ),
+                              Text(
+                                data[0]['subs_barangay'],
+                                style: const TextStyle(
+                                    color: Colors.red,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Row(
+                            children: [
+                              SizedBox(
+                                width: screenWidth * .050,
+                              ),
+                              const Text(
+                                'Municipality:',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 15),
+                              ),
+                              const SizedBox(
+                                width: 39,
+                              ),
+                              Text(
+                                data[0]['subs_municipality'],
+                                style: const TextStyle(
+                                    color: Colors.red,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Row(
+                            children: [
+                              SizedBox(
+                                width: screenWidth * .050,
+                              ),
+                              const Text(
+                                'Province:',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 15),
+                              ),
+                              const SizedBox(
+                                width: 61,
+                              ),
+                              Text(
+                                data[0]['subs_province'],
+                                style: const TextStyle(
+                                    color: Colors.red,
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
                           // Display other profile information...
                         ],
                       );

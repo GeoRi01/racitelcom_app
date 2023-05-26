@@ -26,21 +26,21 @@ _launchURL() async {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  TextEditingController username = TextEditingController();
+  TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
 
   List userdata = [];
   bool _showPassword = false;
 
   Future<void> validateUser(
-      TextEditingController username, TextEditingController password) async {
+      TextEditingController email, TextEditingController password) async {
     // URL to the PHP script on your server
     const String phpScriptUrl =
-        'http://192.168.100.2/racitelcom_php/validate_user.php';
+        'http://192.168.100.26/racitelcom_php/validate_user.php';
 
     // Create a map of request parameters
     Map<String, String> requestBody = {
-      'username': username.text,
+      'email': email.text,
       'password': password.text,
     };
 
@@ -58,7 +58,7 @@ class _LoginPageState extends State<LoginPage> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => Home(username.text),
+              builder: (context) => Home(email.text),
             ),
           );
         } else {
@@ -126,7 +126,7 @@ class _LoginPageState extends State<LoginPage> {
               height: screenHeight * .035,
             ),
             TextFormField(
-              controller: username,
+              controller: email,
               keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(
                 fillColor: Colors.grey.withOpacity(0.1),
@@ -137,9 +137,9 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   borderSide: BorderSide(width: 0, style: BorderStyle.none),
                 ),
-                labelText: 'Username',
+                labelText: 'Email',
                 labelStyle: const TextStyle(color: Colors.black),
-                hintText: 'Enter Username',
+                hintText: 'Enter Email',
                 hintStyle: const TextStyle(color: Colors.grey),
               ),
             ),
@@ -203,7 +203,7 @@ class _LoginPageState extends State<LoginPage> {
               color: const Color(0xFF000159),
               height: screenHeight * .06,
               onPressed: () {
-                validateUser(username, password);
+                validateUser(email, password);
               },
               child: const Text(
                 "Sign In",

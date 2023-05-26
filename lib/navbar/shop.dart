@@ -8,7 +8,8 @@ import 'package:db_racitel/shop/cart.dart';
 import 'package:flutter/material.dart';
 
 class ShopPage extends StatefulWidget {
-  const ShopPage({super.key});
+  final String username;
+  const ShopPage(this.username, {super.key});
 
   @override
   State<ShopPage> createState() => _ShopPageState();
@@ -16,11 +17,13 @@ class ShopPage extends StatefulWidget {
 
 class _ShopPageState extends State<ShopPage>
     with SingleTickerProviderStateMixin {
+  String username = '';
   late TabController _tabController;
 
   @override
   void initState() {
     super.initState();
+    username = widget.username;
     _tabController = TabController(length: 4, vsync: this);
   }
 
@@ -115,7 +118,7 @@ class _ShopPageState extends State<ShopPage>
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => const CartPage(),
+                                      builder: (context) => CartPage(username),
                                     ),
                                   );
                                 },

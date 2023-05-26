@@ -19,7 +19,7 @@ class _AccountPageState extends State<AccountPage> {
 
   Future<List<dynamic>> fetchData(String searchString) async {
     final url = Uri.parse(
-        'http://192.168.1.12/racitelcom_php/fetch_data.php?searchString=$searchString');
+        'http://192.168.100.26/racitelcom_php/fetch_data.php?searchString=$searchString');
 
     final response = await http.get(url);
 
@@ -112,7 +112,7 @@ class _AccountPageState extends State<AccountPage> {
                                     final data = snapshot.data;
                                     if (data != null && data.isNotEmpty) {
                                       return Text(
-                                        data[0]['email'],
+                                        data[0]['subs_address'],
                                         style: Theme.of(context)
                                             .textTheme
                                             .bodyMedium,
@@ -144,8 +144,8 @@ class _AccountPageState extends State<AccountPage> {
                                       ),
                                     );
                                   },
-                                  child: Row(
-                                    children: const [
+                                  child: const Row(
+                                    children: [
                                       Icon(
                                         Icons.person_2_outlined,
                                         size: 40,
@@ -177,8 +177,8 @@ class _AccountPageState extends State<AccountPage> {
                                   color: const Color(0XFFF5F5F5),
                                   height: 70,
                                   onPressed: () {},
-                                  child: Row(
-                                    children: const [
+                                  child: const Row(
+                                    children: [
                                       Icon(
                                         Icons.schedule_outlined,
                                         size: 40,
@@ -218,8 +218,8 @@ class _AccountPageState extends State<AccountPage> {
                                       ),
                                     );
                                   },
-                                  child: Row(
-                                    children: const [
+                                  child: const Row(
+                                    children: [
                                       Icon(
                                         Icons.autorenew_outlined,
                                         size: 40,
@@ -259,8 +259,8 @@ class _AccountPageState extends State<AccountPage> {
                                       ),
                                     );
                                   },
-                                  child: Row(
-                                    children: const [
+                                  child: const Row(
+                                    children: [
                                       Icon(
                                         Icons.settings_outlined,
                                         size: 40,
