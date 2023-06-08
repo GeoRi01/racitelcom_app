@@ -1,5 +1,21 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter/cupertino.dart';
+import 'dart:convert';
+import 'dart:typed_data';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+
+class Product {
+  final String productName;
+  final String productPrice;
+  final Uint8List imageData;
+
+  Product(
+      {required this.productName,
+      required this.productPrice,
+      required this.imageData});
+}
 
 class RoutersCategory extends StatefulWidget {
   const RoutersCategory({super.key});
@@ -9,13 +25,33 @@ class RoutersCategory extends StatefulWidget {
 }
 
 class _RoutersCategoryState extends State<RoutersCategory> {
-  final List<Map<String, dynamic>> gridMap = [
-    {
-      "title": "Router",
-      "price": "₱ 3,000.00",
-      "images": "assets/images/router1.png",
-    },
-  ];
+  List<Product> products = [];
+
+  @override
+  void initState() {
+    super.initState();
+    fetchProducts();
+  }
+
+  Future<void> fetchProducts() async {
+    final response = await http.get(
+        Uri.parse('http://192.168.100.26/racitelcom_php/fetch_router.php'));
+    if (response.statusCode == 200) {
+      final List<dynamic> responseData = jsonDecode(response.body);
+      setState(() {
+        products = responseData
+            .map((data) => Product(
+                  productName: data['productName'],
+                  productPrice: data['productPrice'],
+                  imageData: base64Decode(data['imageData']),
+                ))
+            .toList();
+      });
+    } else {
+      print('Failed to fetch products');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
@@ -26,8 +62,9 @@ class _RoutersCategoryState extends State<RoutersCategory> {
         mainAxisSpacing: 12.0,
         mainAxisExtent: 290,
       ),
-      itemCount: gridMap.length,
-      itemBuilder: (_, index) {
+      itemCount: products.length,
+      itemBuilder: (context, index) {
+        final product = products[index];
         return Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15.0),
@@ -45,8 +82,8 @@ class _RoutersCategoryState extends State<RoutersCategory> {
                   topLeft: Radius.circular(15),
                   topRight: Radius.circular(15),
                 ),
-                child: Image.asset(
-                  "${gridMap.elementAt(index)['images']}",
+                child: Image.memory(
+                  product.imageData,
                   height: 170,
                   width: double.infinity,
                   fit: BoxFit.contain,
@@ -58,7 +95,7 @@ class _RoutersCategoryState extends State<RoutersCategory> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "   ${gridMap.elementAt(index)['title']}",
+                      product.productName,
                       style: Theme.of(context)
                           .textTheme
                           .titleMedium!
@@ -68,7 +105,7 @@ class _RoutersCategoryState extends State<RoutersCategory> {
                       height: 8.0,
                     ),
                     Text(
-                      "   ${gridMap.elementAt(index)['price']}",
+                      product.productPrice,
                       style: Theme.of(context).textTheme.titleSmall!.merge(
                             const TextStyle(
                               fontWeight: FontWeight.w700,
