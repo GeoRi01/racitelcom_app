@@ -1,20 +1,18 @@
 // ignore_for_file: unused_element
 
-import 'package:db_racitel/bills/view_bill.dart';
-import 'package:db_racitel/page/login.dart';
-import 'package:db_racitel/settings/help.dart';
+import 'package:db_racitel/bills/bills_june.dart';
 import 'package:flutter/material.dart';
 
-class SettingsPage extends StatefulWidget {
-  const SettingsPage({super.key});
+class ViewBillPage extends StatefulWidget {
+  const ViewBillPage({super.key});
 
   @override
-  State<SettingsPage> createState() => _SettingsPageState();
+  State<ViewBillPage> createState() => _ViewBillPageState();
 }
 
 int _selectedIndex = 0;
 
-class _SettingsPageState extends State<SettingsPage> {
+class _ViewBillPageState extends State<ViewBillPage> {
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
@@ -32,7 +30,7 @@ class _SettingsPageState extends State<SettingsPage> {
           padding: EdgeInsets.symmetric(horizontal: screenWidth * .1),
           children: [
             SizedBox(
-              height: screenHeight * .1,
+              height: screenHeight * .075,
             ),
             Row(
               children: [
@@ -49,10 +47,10 @@ class _SettingsPageState extends State<SettingsPage> {
                   ),
                 ),
                 const SizedBox(
-                  width: 60,
+                  width: 70,
                 ),
                 const Text(
-                  'Settings',
+                  'My Bill',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
@@ -77,7 +75,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 child: const Row(
                   children: [
                     Icon(
-                      Icons.description,
+                      Icons.calendar_today,
                       size: 40,
                       color: Color(0XFF000159),
                     ),
@@ -85,44 +83,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       width: 15,
                     ),
                     Text(
-                      "Terms & Conditions",
-                      style: TextStyle(fontSize: 23, color: Color(0XFF000159)),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 10, right: 10),
-              child: MaterialButton(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                color: const Color(0XFFF5F5F5),
-                height: 70,
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const ViewBillPage(),
-                    ),
-                  );
-                },
-                child: const Row(
-                  children: [
-                    Icon(
-                      Icons.money,
-                      size: 40,
-                      color: Color(0XFF000159),
-                    ),
-                    SizedBox(
-                      width: 15,
-                    ),
-                    Text(
-                      "View My Bill",
+                      "January",
                       style: TextStyle(fontSize: 23, color: Color(0XFF000159)),
                     ),
                   ],
@@ -144,7 +105,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 child: const Row(
                   children: [
                     Icon(
-                      Icons.privacy_tip,
+                      Icons.calendar_today,
                       size: 40,
                       color: Color(0XFF000159),
                     ),
@@ -152,7 +113,97 @@ class _SettingsPageState extends State<SettingsPage> {
                       width: 15,
                     ),
                     Text(
-                      "Privacy",
+                      "February",
+                      style: TextStyle(fontSize: 23, color: Color(0XFF000159)),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 10, right: 10),
+              child: MaterialButton(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                color: const Color(0XFFF5F5F5),
+                height: 70,
+                onPressed: () {},
+                child: const Row(
+                  children: [
+                    Icon(
+                      Icons.calendar_today,
+                      size: 40,
+                      color: Color(0XFF000159),
+                    ),
+                    SizedBox(
+                      width: 15,
+                    ),
+                    Text(
+                      "March",
+                      style: TextStyle(fontSize: 23, color: Color(0XFF000159)),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 10, right: 10),
+              child: MaterialButton(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                color: const Color(0XFFF5F5F5),
+                height: 70,
+                onPressed: () {},
+                child: const Row(
+                  children: [
+                    Icon(
+                      Icons.calendar_today,
+                      size: 40,
+                      color: Color(0XFF000159),
+                    ),
+                    SizedBox(
+                      width: 15,
+                    ),
+                    Text(
+                      "April",
+                      style: TextStyle(fontSize: 23, color: Color(0XFF000159)),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 10, right: 10),
+              child: MaterialButton(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                color: const Color(0XFFF5F5F5),
+                height: 70,
+                onPressed: () {},
+                child: const Row(
+                  children: [
+                    Icon(
+                      Icons.calendar_today,
+                      size: 40,
+                      color: Color(0XFF000159),
+                    ),
+                    SizedBox(
+                      width: 15,
+                    ),
+                    Text(
+                      "May",
                       style: TextStyle(fontSize: 23, color: Color(0XFF000159)),
                     ),
                   ],
@@ -174,14 +225,14 @@ class _SettingsPageState extends State<SettingsPage> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const HelpSupportPage(),
+                      builder: (context) => const JuneBillPage(),
                     ),
                   );
                 },
                 child: const Row(
                   children: [
                     Icon(
-                      Icons.help_outline,
+                      Icons.calendar_today,
                       size: 40,
                       color: Color(0XFF000159),
                     ),
@@ -189,33 +240,11 @@ class _SettingsPageState extends State<SettingsPage> {
                       width: 15,
                     ),
                     Text(
-                      "Help & Support",
+                      "June",
                       style: TextStyle(fontSize: 23, color: Color(0XFF000159)),
                     ),
                   ],
                 ),
-              ),
-            ),
-            const SizedBox(
-              height: 230,
-            ),
-            MaterialButton(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
-              ),
-              color: const Color(0XFFF5F5F5),
-              height: 60,
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const LoginPage(),
-                  ),
-                );
-              },
-              child: const Text(
-                "Log Out",
-                style: TextStyle(fontSize: 23, color: Color(0XFF000159)),
               ),
             ),
             const SizedBox(

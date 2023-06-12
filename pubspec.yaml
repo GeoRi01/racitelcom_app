@@ -39,6 +39,8 @@ dependencies:
   slide_switcher: ^1.1.2
   http: ^0.13.6
   url_launcher: ^6.1.11
+  syncfusion_flutter_pdfviewer: ^21.2.9
+  path_provider: ^2.0.15
 
 dev_dependencies:
   flutter_test:
